@@ -6,8 +6,6 @@ on:
 env:
   DOCKER_HUB_IMAGE_ID: matlock0o/backend-videos:backend-apis-${{ github.sha }}
   DOCKER_HUB_TAG: "*DOCKER HUB IMAGE:* pi-export-service-${{ github.sha }}"
-  MAVEN_USERNAME: ${{ secrets.PI_PAT_USERNAME }}
-  MAVEN_TOKEN: ${{ secrets.PI_PAT_TOKEN }}
 
 jobs:
   workflow:
