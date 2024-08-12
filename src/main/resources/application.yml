@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: backend-videos
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DBNAME:vids_db}?allowMultiQueries=true&autoReconnect=true
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:federico}
+    driverClassName: com.mysql.cj.jdbc.Driver
+    hikari:
+      maxLifeTime: 400000
+      minimumIdle: 2
+      maximumPoolSize: 20
+      idleTimeout: 120000
+      connectionTimeout: 300000
+      leakDetectionThreshold: ${MYSQL_HIKARI_LEAK_DETECTION_THRESHOLD:300000}
+  jpa:
+    properties:
+      hibernate:
+        proc:
+          param_null_passing: true
+        ddl-auto: none
+        generate_statistics: false
+        dialect: org.hibernate.dialect.MySQLDialect
+        show_sql: false
+  liquibase:
+    enabled: true
+    drop-first: false
+    change-log: classpath:changelog/db.changelog-master.xml
+
+management:
+  endpoints:
+    web:
+      base-path:
+      exposure:
+        include: [ health ]
+
+server:
+  servlet:
+    context-path: "/vids-api"
+logging:
+  level:
+    org.springframework.web: INFO
+    com.backend.vids: DEBUG
+app:
+  jwt:
+    key: 35647794-04ba-435e-941d-5a71a7b762f9
