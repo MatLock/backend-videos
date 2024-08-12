@@ -4,8 +4,7 @@ on:
     branches:
       - main
 env:
-  DOCKER_HUB_IMAGE_ID: matlock0o/backend-videos:backend-apis-${{ github.sha }}
-  DOCKER_HUB_TAG: "*DOCKER HUB IMAGE:* pi-export-service-${{ github.sha }}"
+  DOCKER_HUB_IMAGE_ID: matlock0o/backend-apis:backend-videos-${{ github.sha }}
 
 jobs:
   workflow:
