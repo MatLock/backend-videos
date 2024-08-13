@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: backend-namespace
   labels:
-    name: backend-videos
+    app: backend-videos
